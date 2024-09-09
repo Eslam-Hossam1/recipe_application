@@ -5,10 +5,13 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart';
 import 'package:recipe_app/core/utils/app_router.dart';
 import 'package:recipe_app/core/utils/app_themes.dart';
+import 'package:recipe_app/core/utils/shared_prefernce_helper.dart';
 import 'package:recipe_app/features/on_boarding/presentation/views/on_boarding_view.dart';
 import 'generated/l10n.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await SharedPreferencesHelper.initialize();
   runApp(
     DevicePreview(
       enabled: !kReleaseMode,

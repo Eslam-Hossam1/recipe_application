@@ -39,6 +39,13 @@ abstract class Styles {
     );
   }
 
+  static TextStyle textStyleExtraBold40(context) {
+    return TextStyle(
+      fontWeight: FontWeight.w800,
+      fontSize: getResponsiveText(context, baseFontSize: 40),
+    );
+  }
+
   static TextStyle textStyleSemiBold15(context) {
     return TextStyle(
       fontWeight: FontWeight.w600,
