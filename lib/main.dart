@@ -2,6 +2,7 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 import 'package:recipe_app/core/utils/app_router.dart';
 import 'package:recipe_app/core/utils/app_themes.dart';
@@ -25,21 +26,27 @@ class RecipeApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      routerConfig: AppRouter.router,
+    return ScreenUtilInit(
+        designSize:
+            const Size(375, 812), // Design size, e.g., iPhone X dimensions
+        minTextAdapt: true,
+        builder: (context, child) {
+          return MaterialApp.router(
+            routerConfig: AppRouter.router,
 
-      debugShowCheckedModeBanner: false,
-      //   locale: const Locale('en'),
-      locale: DevicePreview.locale(context),
-      builder: DevicePreview.appBuilder,
-      localizationsDelegates: const [
-        S.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: S.delegate.supportedLocales,
-      theme: AppThemes.getLightTheme(isArabic: false),
-    );
+            debugShowCheckedModeBanner: false,
+            //   locale: const Locale('en'),
+            locale: DevicePreview.locale(context),
+            builder: DevicePreview.appBuilder,
+            localizationsDelegates: const [
+              S.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            supportedLocales: S.delegate.supportedLocales,
+            theme: AppThemes.getLightTheme(isArabic: false),
+          );
+        });
   }
 }

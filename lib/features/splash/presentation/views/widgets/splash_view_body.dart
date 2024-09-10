@@ -40,6 +40,16 @@ class _SplashViewBodyState extends State<SplashViewBody> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
+        SizedBox(
+          height: 200,
+          child: LottieBuilder.asset(
+            Assets.lottieAnimation,
+            repeat: false,
+          ),
+        ),
+        const SizedBox(
+          height: 16,
+        ),
         Center(
           child: Text(
             "Chefio",
@@ -47,16 +57,6 @@ class _SplashViewBodyState extends State<SplashViewBody> {
                 .copyWith(color: Colors.white),
           ),
         ),
-        const SizedBox(
-          height: 16,
-        ),
-        SizedBox(
-          height: 200,
-          child: LottieBuilder.asset(
-            Assets.lottieAnimation,
-            repeat: false,
-          ),
-        )
       ],
     );
   }

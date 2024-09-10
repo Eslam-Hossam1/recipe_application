@@ -55,7 +55,10 @@ class OnBoardingViewBody extends StatelessWidget {
                 onPressed: () async {
                   await setBoolThenNavigate(context);
                 },
-                text: S.of(context).onboarding_buttonText,
+                child: Text(S.of(context).onboarding_buttonText,
+                    style: Styles.textStyleBold15(context).copyWith(
+                      color: Colors.white,
+                    )),
               ),
               const SizedBox(
                 height: 32,
@@ -70,9 +73,7 @@ class OnBoardingViewBody extends StatelessWidget {
   Future<void> setBoolThenNavigate(BuildContext context) async {
     await SharedPreferencesHelper.instance
         .setData(key: Constants.kIsOnBoardingOpenedBeforeKey, value: true);
-    log(SharedPreferencesHelper.instance
-        .getBool(Constants.kIsOnBoardingOpenedBeforeKey)
-        .toString());
+
     // Ensure navigation happens safely
     if (context.mounted) {
       context.push(AppRouter.kHomeView);
