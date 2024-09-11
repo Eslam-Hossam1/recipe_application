@@ -1,10 +1,12 @@
 import 'dart:developer';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
+import 'package:recipe_app/core/utils/app_localization_keys.dart';
 import 'package:recipe_app/core/utils/app_router.dart';
 import 'package:recipe_app/core/utils/assets.dart';
 import 'package:recipe_app/core/utils/colors.dart';
@@ -13,7 +15,6 @@ import 'package:recipe_app/core/utils/shared_prefernce_helper.dart';
 import 'package:recipe_app/core/utils/styles.dart';
 import 'package:recipe_app/core/widgets/custom_text_button.dart';
 import 'package:recipe_app/features/on_boarding/presentation/views/widgets/on_boarding_image.dart';
-import 'package:recipe_app/generated/l10n.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class OnBoardingViewBody extends StatelessWidget {
@@ -27,12 +28,12 @@ class OnBoardingViewBody extends StatelessWidget {
           hasScrollBody: false,
           child: Column(
             children: [
-              const OnBourdingImage(),
+              // const OnBourdingImage(),
               const SizedBox(
                 height: 48,
               ),
               Text(
-                S.of(context).onboarding_title,
+                AppLocalizationKeys.onBoardingTitle.tr(),
                 style: Styles.textStyleBold22(context).copyWith(
                   color: AppColors.getMainTextColor(context),
                 ),
@@ -42,7 +43,7 @@ class OnBoardingViewBody extends StatelessWidget {
               ),
               Text(
                 textAlign: TextAlign.center,
-                S.of(context).onboarding_body,
+                AppLocalizationKeys.onBoardingBody,
                 style: Styles.textStyleMedium17(context).copyWith(
                   color: AppColors.getSecondaryTextColor(context),
                 ),
@@ -55,7 +56,7 @@ class OnBoardingViewBody extends StatelessWidget {
                 onPressed: () async {
                   await setBoolThenNavigate(context);
                 },
-                child: Text(S.of(context).onboarding_buttonText,
+                child: Text(AppLocalizationKeys.onBoardingButtonText.tr(),
                     style: Styles.textStyleBold15(context).copyWith(
                       color: Colors.white,
                     )),

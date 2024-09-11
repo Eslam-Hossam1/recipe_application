@@ -1,5 +1,6 @@
 {
     "onboarding_title": "ابدأ الطهي",
     "onboarding_body": "أنضم إلى مجتمعنا لنطبخ طعاماً أفضل!",
-    "onboarding_buttonText": "ابدأ الآن"
+    "onboarding_buttonText": "ابدأ الآن",
+    "auth_login_welcome":"مرحبًا بعودتك!"
 }

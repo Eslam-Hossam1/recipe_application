@@ -13,15 +13,15 @@ abstract class AppRouter {
     routes: [
       GoRoute(
         path: '/',
-        builder: (context, state) => const LoginView(),
+        builder: (context, state) => const OnBoardingView(),
       ),
       GoRoute(
         path: kHomeView,
         builder: (context, state) => const HomeView(),
       ),
       GoRoute(
-        path: kOnBoardingView,
-        builder: (context, state) => const OnBoardingView(),
+        path: kLoginView,
+        builder: (context, state) => const LoginView(),
       ),
     ],
   );
