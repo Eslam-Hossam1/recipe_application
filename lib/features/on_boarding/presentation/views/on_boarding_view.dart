@@ -9,18 +9,8 @@ class OnBoardingView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return const SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          actions: [
-            IconButton(
-                onPressed: () {
-                  context.setLocale(Locale('en'));
-                },
-                icon: Icon(Icons.search))
-          ],
-          title: Text(AppLocalizationKeys.authLoginWelcome.tr()),
-        ),
         body: OnBoardingViewBody(),
       ),
     );

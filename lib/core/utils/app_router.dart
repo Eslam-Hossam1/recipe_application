@@ -4,6 +4,7 @@ import 'package:recipe_app/features/auth/presentation/views/login_view.dart';
 import 'package:recipe_app/features/home/presentation/views/home_view.dart';
 import 'package:recipe_app/features/on_boarding/presentation/views/on_boarding_view.dart';
 import 'package:recipe_app/features/splash/presentation/views/splash_view.dart';
+import 'package:recipe_app/test_view.dart';
 
 abstract class AppRouter {
   static const kHomeView = "/homeview";
@@ -13,7 +14,7 @@ abstract class AppRouter {
     routes: [
       GoRoute(
         path: '/',
-        builder: (context, state) => const OnBoardingView(),
+        builder: (context, state) => const TestView(),
       ),
       GoRoute(
         path: kHomeView,

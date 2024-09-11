@@ -28,12 +28,12 @@ class OnBoardingViewBody extends StatelessWidget {
           hasScrollBody: false,
           child: Column(
             children: [
-              // const OnBourdingImage(),
+              const OnBourdingImage(),
               const SizedBox(
                 height: 48,
               ),
               Text(
-                AppLocalizationKeys.onBoardingTitle.tr(),
+                AppLocalizationKeys.onBoarding.title.tr(),
                 style: Styles.textStyleBold22(context).copyWith(
                   color: AppColors.getMainTextColor(context),
                 ),
@@ -43,7 +43,7 @@ class OnBoardingViewBody extends StatelessWidget {
               ),
               Text(
                 textAlign: TextAlign.center,
-                AppLocalizationKeys.onBoardingBody,
+                AppLocalizationKeys.onBoarding.body.tr(),
                 style: Styles.textStyleMedium17(context).copyWith(
                   color: AppColors.getSecondaryTextColor(context),
                 ),
@@ -56,7 +56,7 @@ class OnBoardingViewBody extends StatelessWidget {
                 onPressed: () async {
                   await setBoolThenNavigate(context);
                 },
-                child: Text(AppLocalizationKeys.onBoardingButtonText.tr(),
+                child: Text(AppLocalizationKeys.onBoarding.buttonText.tr(),
                     style: Styles.textStyleBold15(context).copyWith(
                       color: Colors.white,
                     )),

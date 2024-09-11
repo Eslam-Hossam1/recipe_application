@@ -1,6 +1,38 @@
 {
-    "onboarding_title": "ابدأ الطهي",
-    "onboarding_body": "أنضم إلى مجتمعنا لنطبخ طعاماً أفضل!",
-    "onboarding_buttonText": "ابدأ الآن",
-    "auth_login_welcome":"مرحبًا بعودتك!"
+    "onboarding":{
+        "title":"ابدأ الطهي",
+        "body":"أنضم إلى مجتمعنا لنطبخ طعاماً أفضل",
+        "button_text":"ابدأ الآن"
+    },
+
+    "auth":{
+        
+        "shared":{
+            "enter_account":"الرجاء إدخال حسابك هنا",
+            "email_text_field_hint":"البريد الالكتروني",
+            "password_text_field_hint":"كلمة السر",
+            "forget_password_question":"هل نسيت كلمة السر؟",
+            "log_in":"تسجيل الدخول",
+            "sign_up":"قم بالتسجيل",
+            "or_continue_with":"أو الاستمرار مع",
+            "confirm":"التاكيد"
+
+
+        },
+        "log_in":{
+            "welcome_back":"مرحبًا بعودتك!",
+            "do_not_have_account":"ليس لديك أي حساب؟?"
+        },
+        "sign_up":{
+            "welcome":"مرحباً!",
+            "already_have_an_account":"لديك حساب بالفعل!"
+        },
+        "forget_password":{
+            "reset_your_password":"إعادة تعيين كلمة المرور الخاصة بك",
+            "enter_email_recover_password":"أدخل بريدك الإلكتروني لاستعادة كلمة المرور الخاصة بك"
+        }
+
+        
+    }
+    
 }
