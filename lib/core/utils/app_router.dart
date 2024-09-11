@@ -14,7 +14,7 @@ abstract class AppRouter {
     routes: [
       GoRoute(
         path: '/',
-        builder: (context, state) => const TestView(),
+        builder: (context, state) => const LoginView(),
       ),
       GoRoute(
         path: kHomeView,

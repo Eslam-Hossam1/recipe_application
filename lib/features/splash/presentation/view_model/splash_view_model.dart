@@ -8,15 +8,15 @@ import 'package:recipe_app/core/utils/shared_prefernce_helper.dart';
 import 'package:recipe_app/features/splash/presentation/views/splash_view.dart';
 
 class SplashViewModel {
-  static final SharedPreferencesHelper sharedPreferencesHelper =
+  static final SharedPreferencesHelper _sharedPreferencesHelper =
       SharedPreferencesHelper.instance;
-  static final SplashViewModel instance = SplashViewModel._();
   //singletone
+  static final SplashViewModel instance = SplashViewModel._();
   SplashViewModel._();
 
   String determineToGoView() {
-    bool? isOnBoardingCompleted =
-        sharedPreferencesHelper.getBool(Constants.kIsOnBoardingOpenedBeforeKey);
+    bool? isOnBoardingCompleted = _sharedPreferencesHelper
+        .getBool(Constants.kIsOnBoardingOpenedBeforeKey);
 
     return isOnBoardingCompleted == null
         ? AppRouter.kOnBoardingView

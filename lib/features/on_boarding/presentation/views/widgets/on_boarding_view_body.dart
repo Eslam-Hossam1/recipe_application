@@ -71,7 +71,7 @@ class OnBoardingViewBody extends StatelessWidget {
     );
   }
 
-  Future<void> setBoolThenNavigate(BuildContext context) async {
+  static Future<void> setBoolThenNavigate(BuildContext context) async {
     await SharedPreferencesHelper.instance
         .setData(key: Constants.kIsOnBoardingOpenedBeforeKey, value: true);
 
