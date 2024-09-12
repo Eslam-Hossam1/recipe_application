@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:recipe_app/core/functions/text_form_field_validator.dart';
 import 'package:recipe_app/core/utils/assets.dart';
@@ -24,6 +25,9 @@ class CustomTextFormField extends StatelessWidget {
         color: AppColors.getMainTextColor(context),
       ),
       decoration: InputDecoration(
+        contentPadding: EdgeInsets.symmetric(
+          vertical: 19.h.clamp(19, double.infinity),
+        ),
         hintText: hint,
         hintStyle: Styles.textStyleMedium15(context).copyWith(
           color: AppColors.getSecondaryTextColor(context),

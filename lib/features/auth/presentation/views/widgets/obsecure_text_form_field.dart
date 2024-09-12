@@ -42,6 +42,9 @@ class _ObsecureTextFormFieldState extends State<ObsecureTextFormField> {
         color: AppColors.getMainTextColor(context),
       ),
       decoration: InputDecoration(
+        contentPadding: EdgeInsets.symmetric(
+          vertical: 19.h.clamp(19, double.infinity),
+        ),
         hintText: widget.hint,
         hintStyle: Styles.textStyleMedium15(context).copyWith(
           color: AppColors.getSecondaryTextColor(context),

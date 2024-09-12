@@ -7,6 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 import 'package:recipe_app/core/utils/app_router.dart';
 import 'package:recipe_app/core/utils/app_themes.dart';
+import 'package:recipe_app/core/utils/constants.dart';
 import 'package:recipe_app/core/utils/shared_prefernce_helper.dart';
 import 'package:recipe_app/features/on_boarding/presentation/views/on_boarding_view.dart';
 
@@ -33,8 +34,8 @@ class RecipeApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-        designSize:
-            const Size(375, 812), // Design size, e.g., iPhone X dimensions
+        designSize: const Size(Constants.kDesignWidth,
+            Constants.kDesignHeight), // Design size, e.g., iPhone X dimensions
         minTextAdapt: true,
         builder: (context, child) {
           return MaterialApp.router(

@@ -14,6 +14,7 @@ import 'package:recipe_app/core/utils/colors.dart';
 import 'package:recipe_app/core/utils/constants.dart';
 import 'package:recipe_app/core/utils/shared_prefernce_helper.dart';
 import 'package:recipe_app/core/utils/styles.dart';
+import 'package:recipe_app/core/widgets/adaptive_padding.dart';
 import 'package:recipe_app/core/widgets/custom_text_button.dart';
 import 'package:recipe_app/features/on_boarding/presentation/views/widgets/on_boarding_image.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -30,47 +31,57 @@ class OnBoardingViewBody extends StatelessWidget {
           child: Column(
             children: [
               const OnBourdingImage(),
-              SizedBox(
-                height: 48.h,
-              ),
-              Text(
-                AppLocalizationKeys.onBoarding.title.tr(),
-                style: Styles.textStyleBold22(context).copyWith(
-                  color: AppColors.getMainTextColor(context),
-                ),
-              ),
-              SizedBox(
-                height: 16.h,
-              ),
-              Text(
-                textAlign: TextAlign.center,
-                AppLocalizationKeys.onBoarding.body.tr(),
-                style: Styles.textStyleMedium17(context).copyWith(
-                  color: AppColors.getSecondaryTextColor(context),
-                ),
-              ),
               Expanded(
-                  child: SizedBox(
-                height: 32.h,
-              )),
-              Row(
-                children: [
-                  Expanded(
-                    child: CustomTextButton(
-                      onPressed: () async {
-                        await setBoolThenNavigate(context);
-                      },
-                      child:
-                          Text(AppLocalizationKeys.onBoarding.buttonText.tr(),
-                              style: Styles.textStyleBold15(context).copyWith(
-                                color: Colors.white,
-                              )),
-                    ),
+                child: AdaptivePadding(
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 48.h,
+                      ),
+                      Text(
+                        AppLocalizationKeys.onBoarding.title.tr(),
+                        style: Styles.textStyleBold22(context).copyWith(
+                          color: AppColors.getMainTextColor(context),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 16.h,
+                      ),
+                      Text(
+                        textAlign: TextAlign.center,
+                        AppLocalizationKeys.onBoarding.body.tr(),
+                        style: Styles.textStyleMedium17(context).copyWith(
+                          color: AppColors.getSecondaryTextColor(context),
+                        ),
+                      ),
+                      Expanded(
+                          child: SizedBox(
+                        height: 32.h,
+                      )),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: CustomTextButton(
+                              onPressed: () async {
+                                await setBoolThenNavigate(context);
+                              },
+                              child: Text(
+                                  AppLocalizationKeys.onBoarding.buttonText
+                                      .tr(),
+                                  style:
+                                      Styles.textStyleBold15(context).copyWith(
+                                    color: Colors.white,
+                                  )),
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 32.h,
+                      ),
+                    ],
                   ),
-                ],
-              ),
-              SizedBox(
-                height: 32.h,
+                ),
               ),
             ],
           ),

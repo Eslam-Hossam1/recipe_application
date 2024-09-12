@@ -85,30 +85,23 @@ abstract class Styles {
     double scaleFactor = _getScaleFactor(context);
     double responsizeTextFontSize = scaleFactor * baseFontSize;
     double lowerLimit = baseFontSize * .75;
+
     double upperLimit = baseFontSize * 1.25;
-    // Log each variable
-    // log('Scale Factor: $scaleFactor');
-    // log('Responsive Text Font Size: $responsizeTextFontSize');
-    // log('Lower Limit: $lowerLimit');
-    // log('Upper Limit: $upperLimit');
-    // log('return ' +
-    //     responsizeTextFontSize.clamp(lowerLimit, upperLimit).toString());
+
     return responsizeTextFontSize.clamp(lowerLimit, upperLimit);
   }
 
   static double _getScaleFactor(context) {
-    // var dispatcher = PlatformDispatcher.instance;
-    // var physicalWidth = dispatcher.views.first.physicalSize.width;
-    // var devicePixelRatio = dispatcher.views.first.devicePixelRatio;
     double width = MediaQuery.sizeOf(context).width;
     const double designMediumWidth = 375;
     return width / designMediumWidth;
-    // if (width < SizeConfig.tabletBreakPoint) {
+  }
+}
+
+    //if (width < SizeConfig.tabletBreakPoint) {
     //   return width / 600;
     // } else if (width < SizeConfig.desktopBreakPoint) {
     //   return width / 1100;
     // } else {
     //   return width / 1550;
     // }
-  }
-}

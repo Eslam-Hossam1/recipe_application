@@ -26,7 +26,7 @@ class AdaptivePadding extends StatelessWidget {
     if (width < SizeConfig.tabletBreakPoint) {
       return baseHorizontalPadding;
     } else {
-      return baseHorizontalPadding.w;
+      return MediaQuery.sizeOf(context).width * (24 / 375);
     }
   }
 }
