@@ -29,6 +29,11 @@ class Auth {
   final String logInViewWelcomeBack = 'auth.log_in.welcome_back';
   final String logInViewDontHaveAnAccount = 'auth.log_in.do_not_have_account';
   final String signUpViewWelcome = 'auth.sign_up.welcome';
+  final String signUpViewYourPasswordMustContain =
+      'auth.sign_up.your_password_must_contain';
+  final String signUpViewAtLeastCharacters = 'auth.sign_up.at_least_characters';
+  final String signUpViewMustContainNumber =
+      'auth.sign_up.must_contains_a_number';
   final String signUpViewAlreadyHaveAnAccount =
       'auth.sign_up.already_have_an_account';
   final String forgetPasswordViewResetYourPassword =

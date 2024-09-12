@@ -24,7 +24,10 @@
         },
         "sign_up":{
             "welcome":"Welcome!",
-            "already_have_an_account":"Already have an account!"
+            "already_have_an_account":"Already have an account!",
+            "your_password_must_contain":"Your Password must contain:",
+            "at_least_characters":"Atleast 6 characters",
+            "must_contains_a_number":"Contains a number"
         },
         "forget_password":{
             "reset_your_password":"Reset your password",
