@@ -30,7 +30,7 @@
             "must_contains_a_number":"Contains a number"
         },
         "forget_password":{
-            "reset_your_password":"Reset your password",
+            "password_recovery":"Password recovery",
             "enter_email_recover_password":"Enter your email to recover your password"
 
         }

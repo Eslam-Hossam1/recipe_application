@@ -26,6 +26,7 @@ class LoginViewBody extends StatelessWidget {
                 (107 / Constants.kDesignHeight),
           ),
           Text(
+            textAlign: TextAlign.center,
             AppLocalizationKeys.auth.logInViewWelcomeBack.tr(),
             style: Styles.textStyleBold22(context).copyWith(
               color: AppColors.getMainTextColor(context),
@@ -35,6 +36,7 @@ class LoginViewBody extends StatelessWidget {
             height: 8.h,
           ),
           Text(
+            textAlign: TextAlign.center,
             AppLocalizationKeys.auth.enterAccount.tr(),
             style: Styles.textStyleMedium15(context).copyWith(
               color: AppColors.getSecondaryTextColor(context),

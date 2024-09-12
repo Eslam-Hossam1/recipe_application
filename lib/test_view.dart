@@ -42,7 +42,7 @@ class TestView extends StatelessWidget {
             Text(AppLocalizationKeys
                 .auth.forgetPasswordViewEnterEmailRecoverPassword
                 .tr()),
-            Text(AppLocalizationKeys.auth.forgetPasswordViewResetYourPassword
+            Text(AppLocalizationKeys.auth.forgetPasswordViewPasswordRecovery
                 .tr()),
           ],
         ),

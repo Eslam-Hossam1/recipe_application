@@ -36,8 +36,8 @@ class Auth {
       'auth.sign_up.must_contains_a_number';
   final String signUpViewAlreadyHaveAnAccount =
       'auth.sign_up.already_have_an_account';
-  final String forgetPasswordViewResetYourPassword =
-      'auth.forget_password.reset_your_password';
+  final String forgetPasswordViewPasswordRecovery =
+      'auth.forget_password.password_recovery';
   final String forgetPasswordViewEnterEmailRecoverPassword =
       'auth.forget_password.enter_email_recover_password';
 }

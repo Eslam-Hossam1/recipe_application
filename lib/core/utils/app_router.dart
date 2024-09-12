@@ -1,5 +1,6 @@
 // GoRouter configuration
 import 'package:go_router/go_router.dart';
+import 'package:recipe_app/features/auth/presentation/views/forget_password_view.dart';
 import 'package:recipe_app/features/auth/presentation/views/login_view.dart';
 import 'package:recipe_app/features/auth/presentation/views/sign_up_view.dart';
 import 'package:recipe_app/features/home/presentation/views/home_view.dart';
@@ -12,11 +13,12 @@ abstract class AppRouter {
   static const kOnBoardingView = "/onboardingview";
   static const kLogInView = "/loginview";
   static const kSignUpView = "/signupview";
+  static const kForgetPasswordView = "/forgetpasswordview";
   static final router = GoRouter(
     routes: [
       GoRoute(
         path: '/',
-        builder: (context, state) => const SignUpView(),
+        builder: (context, state) => const ForgetPasswordView(),
       ),
       GoRoute(
         path: kHomeView,

@@ -31,7 +31,7 @@
             "must_contains_a_number":"يحتوي على رقم"
         },
         "forget_password":{
-            "reset_your_password":"إعادة تعيين كلمة المرور الخاصة بك",
+            "password_recovery":"استعادة كلمة المرور",
             "enter_email_recover_password":"أدخل بريدك الإلكتروني لاستعادة كلمة المرور الخاصة بك"
         }
 
