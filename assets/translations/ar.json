@@ -15,13 +15,13 @@
             "log_in":"تسجيل الدخول",
             "sign_up":"قم بالتسجيل",
             "or_continue_with":"أو الاستمرار مع",
-            "confirm":"التاكيد"
-
+            "confirm":"التاكيد",
+            "this_field_required":"هذا الحقل مطلوب"
 
         },
         "log_in":{
             "welcome_back":"مرحبًا بعودتك!",
-            "do_not_have_account":"ليس لديك أي حساب؟?"
+            "do_not_have_account":"هل ليس لديك حساب؟"
         },
         "sign_up":{
             "welcome":"مرحباً!",

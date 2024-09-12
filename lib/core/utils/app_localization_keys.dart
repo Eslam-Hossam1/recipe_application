@@ -23,6 +23,7 @@ class Auth {
   final String signup = 'auth.shared.sign_up';
   final String orContinueWith = 'auth.shared.or_continue_with';
   final String confirm = 'auth.shared.confirm';
+  final String thisFieldRequired = 'auth.shared.this_field_required';
 
   //view related keys
   final String logInViewWelcomeBack = 'auth.log_in.welcome_back';

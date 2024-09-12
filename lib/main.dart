@@ -43,7 +43,9 @@ class RecipeApp extends StatelessWidget {
             supportedLocales: context.supportedLocales,
             localizationsDelegates: context.localizationDelegates,
             builder: DevicePreview.appBuilder, // Wrap with DevicePreview
-            theme: AppThemes.getLightTheme(isArabic: false),
+            theme: AppThemes.getLightTheme(
+                isArabic: context.locale == const Locale('ar')),
+            debugShowCheckedModeBanner: false,
           );
         });
   }

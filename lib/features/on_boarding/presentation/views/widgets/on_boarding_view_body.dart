@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:recipe_app/core/utils/app_localization_keys.dart';
 import 'package:recipe_app/core/utils/app_router.dart';
@@ -29,8 +30,8 @@ class OnBoardingViewBody extends StatelessWidget {
           child: Column(
             children: [
               const OnBourdingImage(),
-              const SizedBox(
-                height: 48,
+              SizedBox(
+                height: 48.h,
               ),
               Text(
                 AppLocalizationKeys.onBoarding.title.tr(),
@@ -38,8 +39,8 @@ class OnBoardingViewBody extends StatelessWidget {
                   color: AppColors.getMainTextColor(context),
                 ),
               ),
-              const SizedBox(
-                height: 16,
+              SizedBox(
+                height: 16.h,
               ),
               Text(
                 textAlign: TextAlign.center,
@@ -48,21 +49,28 @@ class OnBoardingViewBody extends StatelessWidget {
                   color: AppColors.getSecondaryTextColor(context),
                 ),
               ),
-              const Expanded(
+              Expanded(
                   child: SizedBox(
-                height: 32,
+                height: 32.h,
               )),
-              CustomTextButton(
-                onPressed: () async {
-                  await setBoolThenNavigate(context);
-                },
-                child: Text(AppLocalizationKeys.onBoarding.buttonText.tr(),
-                    style: Styles.textStyleBold15(context).copyWith(
-                      color: Colors.white,
-                    )),
+              Row(
+                children: [
+                  Expanded(
+                    child: CustomTextButton(
+                      onPressed: () async {
+                        await setBoolThenNavigate(context);
+                      },
+                      child:
+                          Text(AppLocalizationKeys.onBoarding.buttonText.tr(),
+                              style: Styles.textStyleBold15(context).copyWith(
+                                color: Colors.white,
+                              )),
+                    ),
+                  ),
+                ],
               ),
-              const SizedBox(
-                height: 32,
+              SizedBox(
+                height: 32.h,
               ),
             ],
           ),

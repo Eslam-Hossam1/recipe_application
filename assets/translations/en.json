@@ -15,8 +15,8 @@
             "log_in":"Login",
             "sign_up":"Sign Up",
             "or_continue_with":"Or continue with",
-            "confirm":"confirm"
-            
+            "confirm":"confirm",
+            "this_field_required":"This field required"
         },
         "log_in":{
             "welcome_back":"Welcome Back!",

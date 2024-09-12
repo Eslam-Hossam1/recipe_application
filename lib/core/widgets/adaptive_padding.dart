@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:recipe_app/core/utils/constants.dart';
 import 'package:recipe_app/core/utils/size_config.dart';
 
 class AdaptivePadding extends StatelessWidget {
@@ -9,8 +11,10 @@ class AdaptivePadding extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(
-        horizontal: getResponsivePadding(baseHorizontalPadding: 24, context),
+        horizontal: getResponsivePadding(
+            baseHorizontalPadding: Constants.kHorizontalPadding, context),
       ),
+      child: child,
     );
   }
 
@@ -22,7 +26,7 @@ class AdaptivePadding extends StatelessWidget {
     if (width < SizeConfig.tabletBreakPoint) {
       return baseHorizontalPadding;
     } else {
-      return baseHorizontalPadding;
+      return baseHorizontalPadding.w;
     }
   }
 }

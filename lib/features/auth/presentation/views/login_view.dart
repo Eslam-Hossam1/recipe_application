@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recipe_app/core/widgets/adaptive_padding.dart';
 import 'package:recipe_app/features/auth/presentation/views/widgets/login_view_body.dart';
 
 class LoginView extends StatelessWidget {
@@ -6,9 +7,9 @@ class LoginView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return const SafeArea(
         child: Scaffold(
-      body: Container(),
+      body: AdaptivePadding(child: LoginViewBody()),
     ));
   }
 }
