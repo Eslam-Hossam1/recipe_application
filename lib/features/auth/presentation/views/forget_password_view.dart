@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:recipe_app/core/utils/colors.dart';
+import 'package:recipe_app/core/widgets/adaptive_layout_widget.dart';
 import 'package:recipe_app/core/widgets/adaptive_padding.dart';
 import 'package:recipe_app/features/auth/presentation/views/widgets/forget_password_body.dart';
+import 'package:recipe_app/features/auth/presentation/views/widgets/forget_password_view_body_tablet_layout.dart';
+import 'package:recipe_app/features/auth/presentation/views/widgets/forget_password_view_body_mobile_layout.dart';
 
 class ForgetPasswordView extends StatelessWidget {
   const ForgetPasswordView({super.key});
@@ -29,7 +32,10 @@ class ForgetPasswordView extends StatelessWidget {
           ),
         ),
       ),
-      body: const AdaptivePadding(child: ForgetPasswordBody()),
+      body: AdaptiveLayout(
+        mobileLayout: (context) => const ForgetPasswordViewBodyMobileLayout(),
+        tabletLayout: (context) => const ForgetPasswordViewBodyTabletLayout(),
+      ),
     ));
   }
 }

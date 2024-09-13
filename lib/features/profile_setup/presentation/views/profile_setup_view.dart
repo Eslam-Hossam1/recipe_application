@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recipe_app/core/widgets/adaptive_padding.dart';
+import 'package:recipe_app/features/profile_setup/presentation/views/widgets/profile_setup_view_body.dart';
 
 class ProfileSetupView extends StatelessWidget {
   const ProfileSetupView({super.key});
@@ -9,7 +10,7 @@ class ProfileSetupView extends StatelessWidget {
     return const SafeArea(
       child: Scaffold(
         body: AdaptivePadding(
-          child: ProfileSetupView(),
+          child: ProfileSetupViewBody(),
         ),
       ),
     );

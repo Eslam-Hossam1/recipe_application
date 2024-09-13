@@ -12,9 +12,11 @@ class CustomTextFormField extends StatelessWidget {
     super.key,
     required this.hint,
     this.onSaved,
+    this.verticalPadding,
   });
   final String hint;
   final void Function(String?)? onSaved;
+  final double? verticalPadding;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -26,7 +28,8 @@ class CustomTextFormField extends StatelessWidget {
       ),
       decoration: InputDecoration(
         contentPadding: EdgeInsets.symmetric(
-          vertical: 18.h.clamp(18, double.infinity),
+          vertical: verticalPadding?.h.clamp(18, double.infinity) ??
+              18.h.clamp(18, double.infinity),
         ),
         hintText: hint,
         hintStyle: Styles.textStyleMedium15(context).copyWith(

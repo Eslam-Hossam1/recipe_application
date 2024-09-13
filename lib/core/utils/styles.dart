@@ -2,6 +2,8 @@ import 'dart:developer';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:recipe_app/core/utils/constants.dart';
+import 'package:recipe_app/core/utils/size_config.dart';
 
 abstract class Styles {
   static TextStyle textStyleMedium12(context) {
@@ -46,6 +48,13 @@ abstract class Styles {
     );
   }
 
+  static TextStyle textStyleBold30(context) {
+    return TextStyle(
+      fontWeight: FontWeight.w700,
+      fontSize: _getResponsiveText(context, baseFontSize: 30),
+    );
+  }
+
   static TextStyle textStyleSemiBold15(context) {
     return TextStyle(
       fontWeight: FontWeight.w600,
@@ -57,6 +66,13 @@ abstract class Styles {
     return TextStyle(
       fontWeight: FontWeight.w500,
       fontSize: _getResponsiveText(context, baseFontSize: 34),
+    );
+  }
+
+  static TextStyle textStyleMedium24(context) {
+    return TextStyle(
+      fontWeight: FontWeight.w500,
+      fontSize: _getResponsiveText(context, baseFontSize: 24),
     );
   }
 
@@ -86,7 +102,10 @@ abstract class Styles {
     double responsizeTextFontSize = scaleFactor * baseFontSize;
     double lowerLimit = baseFontSize * .75;
 
-    double upperLimit = baseFontSize * 1.25;
+    double upperLimit =
+        MediaQuery.sizeOf(context).width < SizeConfig.bigTabletBreakPoint
+            ? baseFontSize * 1.25
+            : baseFontSize * 1.5;
 
     return responsizeTextFontSize.clamp(lowerLimit, upperLimit);
   }

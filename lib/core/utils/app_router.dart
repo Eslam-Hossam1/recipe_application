@@ -3,8 +3,10 @@ import 'package:go_router/go_router.dart';
 import 'package:recipe_app/features/auth/presentation/views/forget_password_view.dart';
 import 'package:recipe_app/features/auth/presentation/views/login_view.dart';
 import 'package:recipe_app/features/auth/presentation/views/sign_up_view.dart';
+import 'package:recipe_app/features/auth/presentation/views/widgets/login_form.dart';
 import 'package:recipe_app/features/home/presentation/views/home_view.dart';
 import 'package:recipe_app/features/on_boarding/presentation/views/on_boarding_view.dart';
+import 'package:recipe_app/features/profile_setup/presentation/views/profile_setup_view.dart';
 import 'package:recipe_app/features/splash/presentation/views/splash_view.dart';
 import 'package:recipe_app/test_view.dart';
 
@@ -18,7 +20,7 @@ abstract class AppRouter {
     routes: [
       GoRoute(
         path: '/',
-        builder: (context, state) => const SplashView(),
+        builder: (context, state) => const OnBoardingView(),
       ),
       GoRoute(
         path: kHomeView,

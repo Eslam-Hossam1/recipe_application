@@ -12,7 +12,7 @@ class AdaptivePadding extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(
         horizontal: getResponsivePadding(
-            baseHorizontalPadding: Constants.kHorizontalPadding, context),
+            baseHorizontalPadding: Constants.kMobileHorizontalPadding, context),
       ),
       child: child,
     );

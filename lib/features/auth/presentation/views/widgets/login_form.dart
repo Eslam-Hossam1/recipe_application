@@ -49,26 +49,30 @@ class _LoginFormState extends State<LoginForm> {
             height: 24.h,
           ),
           const Align(
-            alignment: Alignment.centerRight,
+            alignment: AlignmentDirectional.centerEnd,
             child: ForgetPasswordClickableText(),
           ),
           SizedBox(
             height: 72.h,
           ),
-          const LoginWithEmailAndPasswordButton(),
-          SizedBox(
-            height: 24.h,
+          Column(
+            children: [
+              const LoginWithEmailAndPasswordButton(),
+              SizedBox(
+                height: 24.h,
+              ),
+              Text(
+                AppLocalizationKeys.auth.orContinueWith.tr(),
+                style: Styles.textStyleMedium15(context).copyWith(
+                  color: AppColors.getSecondaryTextColor(context),
+                ),
+              ),
+              SizedBox(
+                height: 24.h,
+              ),
+              const SignInWithGoogleButton(),
+            ],
           ),
-          Text(
-            AppLocalizationKeys.auth.orContinueWith.tr(),
-            style: Styles.textStyleMedium15(context).copyWith(
-              color: AppColors.getSecondaryTextColor(context),
-            ),
-          ),
-          SizedBox(
-            height: 24.h,
-          ),
-          const SignInWithGoogleButton(),
         ],
       ),
     );

@@ -95,12 +95,9 @@ class _SignUpFormState extends State<SignUpForm> {
             ],
           ),
           SizedBox(
-            height: 24.h,
+            height: 48.h,
           ),
           const SignUpWithEmailAndPasswordButton(),
-          SizedBox(
-            height: 24.h,
-          ),
         ],
       ),
     );

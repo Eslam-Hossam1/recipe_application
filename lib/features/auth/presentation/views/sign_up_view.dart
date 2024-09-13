@@ -1,17 +1,21 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:recipe_app/core/widgets/adaptive_layout_widget.dart';
 import 'package:recipe_app/core/widgets/adaptive_padding.dart';
 import 'package:recipe_app/features/auth/presentation/views/widgets/sign_up_view_body.dart';
+import 'package:recipe_app/features/auth/presentation/views/widgets/sign_up_view_body_mobile_layout.dart';
+import 'package:recipe_app/features/auth/presentation/views/widgets/sign_up_view_body_tablet_layout.dart';
 
 class SignUpView extends StatelessWidget {
   const SignUpView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    return SafeArea(
         child: Scaffold(
-      body: AdaptivePadding(
-        child: SignUpViewBody(),
+      body: AdaptiveLayout(
+        mobileLayout: (context) => const SignUpViewBodyMobileLayout(),
+        tabletLayout: (context) => const SignUpViewBodyTabletLayout(),
       ),
     ));
   }
