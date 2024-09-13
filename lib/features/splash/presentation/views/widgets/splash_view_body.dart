@@ -18,15 +18,27 @@ class SplashViewBody extends StatefulWidget {
 }
 
 class _SplashViewBodyState extends State<SplashViewBody> {
+  late double _opacity;
+
   @override
   void initState() {
     super.initState();
+    startFadeInAnimation();
     String toGoView = SplashViewModel.instance.determineToGoView();
-    navigationAfterDuaration(toGoView);
+    navigationAfterDuration(toGoView);
   }
 
-  navigationAfterDuaration(String toGoView) {
-    return Future.delayed(const Duration(milliseconds: 4200)).then(
+  void startFadeInAnimation() {
+    _opacity = 0;
+    Future.delayed(Constants.kAnimationDelayDuration, () {
+      setState(() {
+        _opacity = 1;
+      });
+    });
+  }
+
+  navigationAfterDuration(String toGoView) {
+    return Future.delayed(Constants.kNavigationDelayDuration).then(
       (value) {
         if (mounted) {
           context.push(toGoView);
@@ -40,21 +52,22 @@ class _SplashViewBodyState extends State<SplashViewBody> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        SizedBox(
-          height: 200,
-          child: LottieBuilder.asset(
-            Assets.lottieAnimation,
-            repeat: false,
-          ),
-        ),
-        const SizedBox(
-          height: 16,
-        ),
-        Center(
-          child: Text(
-            "Chefio",
-            style: Styles.textStyleExtraBold40(context)
-                .copyWith(color: Colors.white),
+        Flexible(
+          fit: FlexFit.loose,
+          child: Center(
+            child: AnimatedOpacity(
+              opacity: _opacity,
+              duration: Constants.kFadeInDuration,
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                alignment: Alignment.center,
+                child: Text(
+                  "Chefio",
+                  style: Styles.textStyleExtraBold40(context)
+                      .copyWith(color: Colors.white),
+                ),
+              ),
+            ),
           ),
         ),
       ],

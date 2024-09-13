@@ -3,4 +3,7 @@ abstract class Constants {
   static const double kHorizontalPadding = 24;
   static const double kDesignWidth = 375;
   static const double kDesignHeight = 812;
+  static const Duration kAnimationDelayDuration = Duration(milliseconds: 500);
+  static const Duration kFadeInDuration = Duration(seconds: 1);
+  static const Duration kNavigationDelayDuration = Duration(milliseconds: 2500);
 }

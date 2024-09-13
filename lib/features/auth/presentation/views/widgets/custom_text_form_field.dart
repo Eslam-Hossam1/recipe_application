@@ -26,7 +26,7 @@ class CustomTextFormField extends StatelessWidget {
       ),
       decoration: InputDecoration(
         contentPadding: EdgeInsets.symmetric(
-          vertical: 19.h.clamp(19, double.infinity),
+          vertical: 18.h.clamp(18, double.infinity),
         ),
         hintText: hint,
         hintStyle: Styles.textStyleMedium15(context).copyWith(
