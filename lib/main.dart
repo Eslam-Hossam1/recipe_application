@@ -1,5 +1,6 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -10,11 +11,14 @@ import 'package:recipe_app/core/utils/app_themes.dart';
 import 'package:recipe_app/core/utils/constants.dart';
 import 'package:recipe_app/core/utils/shared_prefernce_helper.dart';
 import 'package:recipe_app/features/on_boarding/presentation/views/on_boarding_view.dart';
+import 'package:recipe_app/firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   await EasyLocalization.ensureInitialized();
-
   await SharedPreferencesHelper.initialize();
   runApp(
     DevicePreview(

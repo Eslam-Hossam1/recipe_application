@@ -102,10 +102,7 @@ abstract class Styles {
     double responsizeTextFontSize = scaleFactor * baseFontSize;
     double lowerLimit = baseFontSize * .75;
 
-    double upperLimit =
-        MediaQuery.sizeOf(context).width < SizeConfig.bigTabletBreakPoint
-            ? baseFontSize * 1.25
-            : baseFontSize * 1.5;
+    double upperLimit = getUpperLimit(context, baseFontSize: baseFontSize);
 
     return responsizeTextFontSize.clamp(lowerLimit, upperLimit);
   }
@@ -114,6 +111,17 @@ abstract class Styles {
     double width = MediaQuery.sizeOf(context).width;
     const double designMediumWidth = 375;
     return width / designMediumWidth;
+  }
+
+  static double getUpperLimit(context, {required double baseFontSize}) {
+    if (MediaQuery.sizeOf(context).width < SizeConfig.bigTabletBreakPoint) {
+      return baseFontSize * 1.25;
+    } else if (MediaQuery.sizeOf(context).width <
+        SizeConfig.disktopBreakPoint) {
+      return baseFontSize * 1.4;
+    } else {
+      return baseFontSize * 1.5;
+    }
   }
 }
 

@@ -27,7 +27,7 @@ class OnBoardingBottomSectionTablet extends StatelessWidget {
           ),
           Text(
             AppLocalizationKeys.onBoarding.title.tr(),
-            style: Styles.textStyleBold30(context).copyWith(
+            style: Styles.textStyleBold22(context).copyWith(
               color: AppColors.getMainTextColor(context),
             ),
           ),
@@ -37,7 +37,7 @@ class OnBoardingBottomSectionTablet extends StatelessWidget {
           Text(
             textAlign: TextAlign.center,
             AppLocalizationKeys.onBoarding.body.tr(),
-            style: Styles.textStyleMedium24(context).copyWith(
+            style: Styles.textStyleMedium17(context).copyWith(
               color: AppColors.getSecondaryTextColor(context),
             ),
           ),
