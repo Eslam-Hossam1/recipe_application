@@ -6,6 +6,7 @@ import 'package:lottie/lottie.dart';
 import 'package:recipe_app/core/utils/app_router.dart';
 import 'package:recipe_app/core/utils/assets.dart';
 import 'package:recipe_app/core/utils/constants.dart';
+import 'package:recipe_app/core/utils/service_locator.dart';
 import 'package:recipe_app/core/utils/shared_prefernce_helper.dart';
 import 'package:recipe_app/core/utils/styles.dart';
 import 'package:recipe_app/features/splash/presentation/view_model/splash_view_model.dart';
@@ -24,7 +25,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
   void initState() {
     super.initState();
     startFadeInAnimation();
-    String toGoView = SplashViewModel.instance.determineToGoView();
+    String toGoView = getIt<SplashViewModel>().determineToGoView();
     navigationAfterDuration(toGoView);
   }
 
@@ -38,7 +39,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
   }
 
   navigationAfterDuration(String toGoView) {
-    return Future.delayed(Constants.kNavigationDelayDuration).then(
+    return Future.delayed(Constants.kSplashNavigationDelayDuration).then(
       (value) {
         if (mounted) {
           context.push(toGoView);

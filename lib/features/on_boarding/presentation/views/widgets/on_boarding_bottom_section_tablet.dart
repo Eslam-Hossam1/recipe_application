@@ -7,10 +7,12 @@ import 'package:recipe_app/core/utils/app_localization_keys.dart';
 import 'package:recipe_app/core/utils/app_router.dart';
 import 'package:recipe_app/core/utils/colors.dart';
 import 'package:recipe_app/core/utils/constants.dart';
+import 'package:recipe_app/core/utils/service_locator.dart';
 import 'package:recipe_app/core/utils/shared_prefernce_helper.dart';
 import 'package:recipe_app/core/utils/styles.dart';
 import 'package:recipe_app/core/widgets/adaptive_padding.dart';
 import 'package:recipe_app/core/widgets/custom_text_button.dart';
+import 'package:recipe_app/features/on_boarding/presentation/view_model/onboarding_view_model.dart';
 
 class OnBoardingBottomSectionTablet extends StatelessWidget {
   const OnBoardingBottomSectionTablet({super.key});
@@ -51,7 +53,8 @@ class OnBoardingBottomSectionTablet extends StatelessWidget {
               Expanded(
                 child: CustomTextButton(
                   onPressed: () async {
-                    await setBoolThenNavigate(context);
+                    await getIt<OnboardingViewModel>()
+                        .setOnBoardingCompletedToTrueThenNavigate(context);
                   },
                   child: Text(AppLocalizationKeys.onBoarding.buttonText.tr(),
                       style: Styles.textStyleBold15(context).copyWith(
@@ -68,15 +71,5 @@ class OnBoardingBottomSectionTablet extends StatelessWidget {
         ],
       ),
     );
-  }
-
-  static Future<void> setBoolThenNavigate(BuildContext context) async {
-    await SharedPreferencesHelper.instance
-        .setData(key: Constants.kIsOnBoardingOpenedBeforeKey, value: true);
-
-    // Ensure navigation happens safely
-    if (context.mounted) {
-      context.push(AppRouter.kHomeView);
-    }
   }
 }
