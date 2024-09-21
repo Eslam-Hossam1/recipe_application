@@ -1,15 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:easy_localization/easy_localization.dart'; // Import easy_localization package
-import 'package:recipe_app/core/utils/app_localization_keys.dart'; // Import localization keys
-
-abstract class Failure {
-  final String errMsg;
-
-  Failure(this.errMsg);
-}
+import 'package:recipe_app/core/errors/failure.dart';
+import 'package:recipe_app/core/utils/app_localization_keys.dart';
 
 class FirebaseAuthFailure extends Failure {
-  FirebaseAuthFailure(super.errMsg);
+  FirebaseAuthFailure(super.errorMessage);
 
   // Factory constructor to create the failure based on FirebaseAuthException
   factory FirebaseAuthFailure.fromFirebaseAuthException(
@@ -27,7 +22,7 @@ class FirebaseAuthFailure extends Failure {
         errorMessage = AppLocalizationKeys.auth.logInViewUserDisabled.tr();
         break;
       case 'user-not-found':
-        errorMessage = AppLocalizationKeys.auth.logInViewUserNotFound.tr();
+        errorMessage = AppLocalizationKeys.auth.userNotFound.tr();
         break;
       case 'email-already-in-use':
         errorMessage =
@@ -39,6 +34,15 @@ class FirebaseAuthFailure extends Failure {
         break;
       case 'weak-password':
         errorMessage = AppLocalizationKeys.auth.signUpViewWeakPassword.tr();
+        break;
+      case 'too-many-requests':
+        errorMessage = AppLocalizationKeys.auth.tooManyRequests.tr();
+        break;
+      case 'network-request-failed':
+        errorMessage = AppLocalizationKeys.auth.networkRequestFailed.tr();
+        break;
+      case 'invalid-recipient-email':
+        errorMessage = AppLocalizationKeys.auth.invalidRecipientEmail.tr();
         break;
       default:
         errorMessage = AppLocalizationKeys.auth.unknownError.tr();

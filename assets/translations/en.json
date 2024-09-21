@@ -18,16 +18,18 @@
             "confirm":"confirm",
             "this_field_required":"This field required",
             "invalid_email": "The email address is not valid. Please enter a valid email.",
-            "unknown_error": "An unknown error occurred. Please try again later."
-
+            "unknown_error": "An unknown error occurred. Please try again later.",
+            "user_not_found": "No user found with this email address.",
+            "invalid_recipient_email": "The email address is not valid.",
+    "too_many_requests": "Too many requests, please try again later.",
+    "network_request_failed": "Network error, please check your connection."
 
         },
         "log_in":{
             "welcome_back":"Welcome Back!",
             "do_not_have_account":"Don’t have any account?",
             "wrong_password": "The password is incorrect. Please try again.",
-            "user_disabled": "This user account has been disabled. Please contact support.",
-            "user_not_found": "No user found with this email address."
+            "user_disabled": "This user account has been disabled. Please contact support."
         },
         "sign_up":{
             "welcome":"Welcome!",
