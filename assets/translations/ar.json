@@ -16,19 +16,28 @@
             "sign_up":"قم بالتسجيل",
             "or_continue_with":"أو الاستمرار مع",
             "confirm":"التاكيد",
-            "this_field_required":"هذا الحقل مطلوب"
+            "this_field_required":"هذا الحقل مطلوب",
+            "invalid_email": "عنوان البريد الإلكتروني غير صالح. يرجى إدخال بريد إلكتروني صالح.",
+            "unknown_error": "حدث خطأ غير معروف. حاول مرة أخرى لاحقًا."
+
 
         },
         "log_in":{
             "welcome_back":"مرحبًا بعودتك!",
-            "do_not_have_account":"هل ليس لديك حساب؟"
+            "do_not_have_account":"هل ليس لديك حساب؟",
+            "wrong_password": "كلمة المرور غير صحيحة. حاول مرة اخرى.",
+    "user_disabled": "تم تعطيل حساب المستخدم هذا. يرجى الاتصال بالدعم.",
+    "user_not_found": "لم يتم العثور على مستخدم بهذا البريد الإلكتروني."
         },
         "sign_up":{
             "welcome":"مرحباً!",
             "already_have_an_account":"لديك حساب بالفعل!",
             "your_password_must_contain":"يجب أن تحتوي كلمة المرور الخاصة بك على:",
             "at_least_characters":"6 أحرف على الأقل",
-            "must_contains_a_number":"يحتوي على رقم"
+            "must_contains_a_number":"يحتوي على رقم",
+            "email_already_in_use": "البريد الإلكتروني مستخدم بالفعل من قبل حساب آخر.",
+            "operation_not_allowed": "لم يتم تمكين تسجيل الدخول باستخدام البريد الإلكتروني / كلمة المرور. يرجى الاتصال بالدعم.",
+            "weak_password": "كلمة المرور ضعيفة جدًا. يرجى اختيار كلمة مرور أقوى."
         },
         "forget_password":{
             "password_recovery":"استعادة كلمة المرور",

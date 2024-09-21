@@ -24,13 +24,25 @@ class Auth {
   final String orContinueWith = 'auth.shared.or_continue_with';
   final String confirm = 'auth.shared.confirm';
   final String thisFieldRequired = 'auth.shared.this_field_required';
+  final String unknownError = 'auth.shared.unknown_error';
+  final String invalidEmail = 'auth.shared.invalid_email';
 
   //view related keys
   final String logInViewWelcomeBack = 'auth.log_in.welcome_back';
   final String logInViewDontHaveAnAccount = 'auth.log_in.do_not_have_account';
+  final String logInViewWrongPassword = 'auth.log_in.wrong_password';
+  final String logInViewUserDisabled = 'auth.log_in.user_disabled';
+  final String logInViewUserNotFound = 'auth.log_in.user_not_found';
   final String signUpViewWelcome = 'auth.sign_up.welcome';
   final String signUpViewYourPasswordMustContain =
       'auth.sign_up.your_password_must_contain';
+  final String signUpViewEmailAlreadyInUse =
+      'auth.sign_up.email_already_in_use';
+  final String signUpViewOperationNotAllowed =
+      'auth.sign_up.operation_not_allowed';
+
+  final String signUpViewWeakPassword = 'auth.sign_up.weak_password';
+
   final String signUpViewAtLeastCharacters = 'auth.sign_up.at_least_characters';
   final String signUpViewMustContainNumber =
       'auth.sign_up.must_contains_a_number';
