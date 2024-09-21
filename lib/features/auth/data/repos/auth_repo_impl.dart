@@ -28,10 +28,10 @@ class AuthRepoImpl implements AuthRepo {
   }
 
   @override
-  Future<Either<Failure, void>> sendEmailVerification() async {
+  Future<Either<Failure, void>> sendEmailVerification(
+      {required User user}) async {
     try {
-      User? user = FirebaseAuth.instance.currentUser;
-      await user!.sendEmailVerification();
+      await user.sendEmailVerification();
       return right(null);
     } catch (e) {
       if (e is FirebaseAuthException) {
@@ -46,9 +46,19 @@ class AuthRepoImpl implements AuthRepo {
 
   @override
   Future<Either<Failure, void>> sendPasswordResetEmail(
-      {required String email}) {
-    // TODO: implement sendPasswordResetEmail
-    throw UnimplementedError();
+      {required String email}) async {
+    try {
+      await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
+      return right(null);
+    } catch (e) {
+      if (e is FirebaseAuthException) {
+        return left(FirebaseAuthFailure.fromFirebaseAuthException(e));
+      } else {
+        return left(
+          FirebaseAuthFailure(AppLocalizationKeys.auth.unknownError.tr()),
+        );
+      }
+    }
   }
 
   @override
