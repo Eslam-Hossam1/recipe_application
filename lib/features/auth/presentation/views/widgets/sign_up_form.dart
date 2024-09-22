@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:recipe_app/core/utils/app_localization_keys.dart';
@@ -7,6 +8,7 @@ import 'package:recipe_app/core/utils/assets.dart';
 import 'package:recipe_app/core/utils/colors.dart';
 import 'package:recipe_app/core/utils/styles.dart';
 import 'package:recipe_app/core/widgets/custom_text_button.dart';
+import 'package:recipe_app/features/auth/presentation/manager/sign_up_cubit/sign_up_cubit.dart';
 import 'package:recipe_app/features/auth/presentation/views/widgets/custom_text_form_field.dart';
 import 'package:recipe_app/features/auth/presentation/views/widgets/forget_password_clickable_text.dart';
 import 'package:recipe_app/features/auth/presentation/views/widgets/login_with_email_and_password_button.dart';
@@ -24,6 +26,8 @@ class SignUpForm extends StatefulWidget {
 class _SignUpFormState extends State<SignUpForm> {
   late GlobalKey<FormState> _formKey;
   late AutovalidateMode _autovalidateMode;
+  String? email;
+  String? password;
   @override
   void initState() {
     super.initState();
@@ -39,12 +43,19 @@ class _SignUpFormState extends State<SignUpForm> {
       child: Column(
         children: [
           CustomTextFormField(
-              hint: AppLocalizationKeys.auth.emailTextFeildHint.tr()),
+            hint: AppLocalizationKeys.auth.emailTextFeildHint.tr(),
+            onSaved: (value) {
+              email = value;
+            },
+          ),
           SizedBox(
             height: 16.h,
           ),
           ObsecureTextFormField(
             hint: AppLocalizationKeys.auth.passwordTextFieldHint.tr(),
+            onSaved: (value) {
+              password = value;
+            },
           ),
           SizedBox(
             height: 24.h,
@@ -97,7 +108,17 @@ class _SignUpFormState extends State<SignUpForm> {
           SizedBox(
             height: 48.h,
           ),
-          const SignUpWithEmailAndPasswordButton(),
+          SignUpWithEmailAndPasswordButton(
+            onPressed: () async {
+              if (_formKey.currentState!.validate()) {
+                await BlocProvider.of<SignUpCubit>(context)
+                    .signUpWithEmailAndPassword(
+                        email: email!, password: password!);
+              } else {
+                _autovalidateMode = AutovalidateMode.always;
+              }
+            },
+          ),
         ],
       ),
     );
