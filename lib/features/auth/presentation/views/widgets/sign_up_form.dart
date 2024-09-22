@@ -111,6 +111,7 @@ class _SignUpFormState extends State<SignUpForm> {
           SignUpWithEmailAndPasswordButton(
             onPressed: () async {
               if (_formKey.currentState!.validate()) {
+                _formKey.currentState!.save();
                 await BlocProvider.of<SignUpCubit>(context)
                     .signUpWithEmailAndPassword(
                         email: email!, password: password!);
