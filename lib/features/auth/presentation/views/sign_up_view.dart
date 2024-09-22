@@ -1,9 +1,17 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:recipe_app/core/functions/custom_adaptive_awesome_dialog.dart';
+import 'package:recipe_app/core/utils/app_localization_keys.dart';
+import 'package:recipe_app/core/utils/app_router.dart';
 import 'package:recipe_app/core/utils/colors.dart';
+import 'package:recipe_app/core/utils/constants.dart';
+import 'package:recipe_app/core/utils/size_config.dart';
+import 'package:recipe_app/core/utils/styles.dart';
 import 'package:recipe_app/core/widgets/adaptive_layout_widget.dart';
 import 'package:recipe_app/core/widgets/adaptive_padding.dart';
 import 'package:recipe_app/features/auth/presentation/manager/sign_up_cubit/sign_up_cubit.dart';
@@ -20,26 +28,14 @@ class SignUpView extends StatelessWidget {
         child: BlocConsumer<SignUpCubit, SignUpState>(
       listener: (context, state) {
         if (state is SignUpFailure) {
-          AwesomeDialog(
-            context: context,
-            dialogType: DialogType.info,
-            animType: AnimType.rightSlide,
-            title: 'Dialog Title',
-            desc: 'Dialog description here.............',
-            btnCancelOnPress: () {},
+          customAdaptiveAwesomeDialog(
+            context,
+            dialogType: DialogType.error,
+            title: AppLocalizationKeys.global.error.tr(),
+            desc: state.errorMessage,
             btnOkOnPress: () {},
           ).show();
-        } else if (state is SignUpSuccess) {
-          AwesomeDialog(
-            context: context,
-            dialogType: DialogType.info,
-            animType: AnimType.rightSlide,
-            title: 'Dialog Title',
-            desc: 'Dialog description here.............',
-            btnCancelOnPress: () {},
-            btnOkOnPress: () {},
-          ).show();
-        }
+        } else if (state is SignUpSuccess) {}
       },
       builder: (context, state) {
         bool isLoading = state is SignUpLoading;

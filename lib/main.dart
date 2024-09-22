@@ -49,7 +49,7 @@ class RecipeApp extends StatelessWidget {
             supportedLocales: context.supportedLocales,
             localizationsDelegates: context.localizationDelegates,
             builder: DevicePreview.appBuilder, // Wrap with DevicePreview
-            theme: AppThemes.getLightTheme(
+            theme: AppThemes.getDarkTheme(
                 isArabic: context.locale == const Locale('ar')),
             debugShowCheckedModeBanner: false,
           );

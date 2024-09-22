@@ -49,4 +49,11 @@ abstract class AppColors {
         ? const Color(0xFF121212)
         : const Color(0xFFFFFFFF);
   }
+
+  static Color getAwesomeDialogBackgroundColor(BuildContext context) {
+    final theme = Theme.of(context);
+    return theme.brightness == Brightness.dark
+        ? const Color(0xFF1E1E1E)
+        : const Color(0xFFF0F0F0);
+  }
 }

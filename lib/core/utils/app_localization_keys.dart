@@ -1,6 +1,7 @@
 abstract class AppLocalizationKeys {
   static OnBoarding onBoarding = OnBoarding._instance;
   static Auth auth = Auth._instance;
+  static Global global = Global._instance;
 }
 
 class OnBoarding {
@@ -30,6 +31,7 @@ class Auth {
   final String invalidRecipientEmail = 'auth.shared.invalid_recipient_email';
   final String tooManyRequests = 'auth.shared.too_many_requests';
   final String networkRequestFailed = 'auth.shared.network_request_failed';
+  final String goVerifyEmail = 'auth.shared.go_verify_email';
 
   //view related keys
   final String logInViewWelcomeBack = 'auth.log_in.welcome_back';
@@ -55,4 +57,13 @@ class Auth {
       'auth.forget_password.password_recovery';
   final String forgetPasswordViewEnterEmailRecoverPassword =
       'auth.forget_password.enter_email_recover_password';
+}
+
+class Global {
+  Global._();
+  static final Global _instance = Global._();
+  final String warning = 'global.warning';
+  final String error = 'global.error';
+  final String info = 'global.info';
+  final String success = 'global.success';
 }

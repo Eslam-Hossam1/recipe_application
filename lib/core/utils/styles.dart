@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:recipe_app/core/utils/colors.dart';
 import 'package:recipe_app/core/utils/constants.dart';
 import 'package:recipe_app/core/utils/size_config.dart';
 
@@ -94,6 +95,22 @@ abstract class Styles {
     return TextStyle(
       fontWeight: FontWeight.w600,
       fontSize: _getResponsiveText(context, baseFontSize: 34),
+    );
+  }
+
+  static TextStyle textStyleAwesomeDialogTitle(context) {
+    return TextStyle(
+      fontWeight: FontWeight.w600,
+      fontSize: _getResponsiveText(context, baseFontSize: 20),
+      color: AppColors.getMainTextColor(context),
+    );
+  }
+
+  static TextStyle textStyleAwesomeDialogDesc(context) {
+    return TextStyle(
+      fontWeight: FontWeight.w400,
+      fontSize: _getResponsiveText(context, baseFontSize: 14),
+      color: AppColors.getMainTextColor(context),
     );
   }
 
