@@ -8,5 +8,5 @@ abstract class AuthRepo {
   Future<Either<Failure, UserCredential>> signUpWithEmailAndPassword(
       {required String email, required String password});
   Future<Either<Failure, void>> sendPasswordResetEmail({required String email});
-  Future<Either<Failure, void>> sendEmailVerification({required User user});
+  Future<Either<Failure, void>> sendEmailVerification();
 }

@@ -1,5 +1,9 @@
 // GoRouter configuration
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:recipe_app/core/utils/service_locator.dart';
+import 'package:recipe_app/features/auth/data/repos/auth_repo_impl.dart';
+import 'package:recipe_app/features/auth/presentation/manager/sign_up_cubit/sign_up_cubit.dart';
 import 'package:recipe_app/features/auth/presentation/views/forget_password_view.dart';
 import 'package:recipe_app/features/auth/presentation/views/login_view.dart';
 import 'package:recipe_app/features/auth/presentation/views/sign_up_view.dart';
@@ -18,10 +22,10 @@ abstract class AppRouter {
   static const kForgetPasswordView = "/forgetpasswordview";
   static final router = GoRouter(
     routes: [
-      GoRoute(
-        path: '/',
-        builder: (context, state) => const OnBoardingView(),
-      ),
+      // GoRoute(
+      //   path: '/',
+      //   builder: (context, state) => const OnBoardingView(),
+      // ),
       GoRoute(
         path: kHomeView,
         builder: (context, state) => const HomeView(),
@@ -29,6 +33,13 @@ abstract class AppRouter {
       GoRoute(
         path: kLogInView,
         builder: (context, state) => const LoginView(),
+      ),
+      GoRoute(
+        path: '/',
+        builder: (context, state) => BlocProvider(
+          create: (context) => SignUpCubit(getIt<AuthRepoImpl>()),
+          child: const SignUpView(),
+        ),
       ),
     ],
   );

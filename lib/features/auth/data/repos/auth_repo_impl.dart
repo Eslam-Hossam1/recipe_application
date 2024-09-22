@@ -28,10 +28,13 @@ class AuthRepoImpl implements AuthRepo {
   }
 
   @override
-  Future<Either<Failure, void>> sendEmailVerification(
-      {required User user}) async {
+  Future<Either<Failure, void>> sendEmailVerification() async {
     try {
-      await user.sendEmailVerification();
+      User? user = FirebaseAuth.instance.currentUser;
+
+      if (user != null && !user.emailVerified) {
+        await user.sendEmailVerification();
+      }
       return right(null);
     } catch (e) {
       if (e is FirebaseAuthException) {
