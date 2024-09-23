@@ -7,17 +7,16 @@ import 'package:recipe_app/core/widgets/custom_text_button.dart';
 class LoginWithEmailAndPasswordButton extends StatelessWidget {
   const LoginWithEmailAndPasswordButton({
     super.key,
+    this.onPressed,
   });
-
+  final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         Expanded(
           child: CustomTextButton(
-            onPressed: () {
-              context.setLocale(const Locale('en'));
-            },
+            onPressed: onPressed,
             child: Text(
               AppLocalizationKeys.auth.logIn.tr(),
               style:

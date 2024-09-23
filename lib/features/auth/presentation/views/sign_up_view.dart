@@ -40,7 +40,8 @@ class SignUpView extends StatelessWidget {
             context,
             dialogType: DialogType.success,
             title: AppLocalizationKeys.global.success.tr(),
-            desc: AppLocalizationKeys.auth.goVerifyEmail.tr(),
+            desc:
+                AppLocalizationKeys.auth.signUpViewWeSentEmailVerification.tr(),
             btnOkOnPress: () {},
             onDismissCallback: (_) {
               context.go(AppRouter.kLogInView);

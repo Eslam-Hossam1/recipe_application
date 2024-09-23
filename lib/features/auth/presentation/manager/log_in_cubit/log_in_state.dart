@@ -5,7 +5,9 @@ sealed class LogInState {}
 
 final class LogInInitial extends LogInState {}
 
-final class LogInSuccess extends LogInState {}
+final class LogInSuccessButNeedVerification extends LogInState {}
+
+final class LogInSuccessAndVerified extends LogInState {}
 
 final class LogInLoading extends LogInState {}
 

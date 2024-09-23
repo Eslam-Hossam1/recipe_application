@@ -31,14 +31,17 @@ class Auth {
   final String invalidRecipientEmail = 'auth.shared.invalid_recipient_email';
   final String tooManyRequests = 'auth.shared.too_many_requests';
   final String networkRequestFailed = 'auth.shared.network_request_failed';
-  final String goVerifyEmail = 'auth.shared.go_verify_email';
 
   //view related keys
   final String logInViewWelcomeBack = 'auth.log_in.welcome_back';
   final String logInViewDontHaveAnAccount = 'auth.log_in.do_not_have_account';
   final String logInViewWrongPassword = 'auth.log_in.wrong_password';
   final String logInViewUserDisabled = 'auth.log_in.user_disabled';
+  final String logInViewYourEmailNotVerifiedYet =
+      'auth.log_in.your_email_need_to_verified';
   final String signUpViewWelcome = 'auth.sign_up.welcome';
+  final String signUpViewWeSentEmailVerification =
+      'auth.sign_up.we_sent_email_verification';
   final String signUpViewYourPasswordMustContain =
       'auth.sign_up.your_password_must_contain';
   final String signUpViewEmailAlreadyInUse =

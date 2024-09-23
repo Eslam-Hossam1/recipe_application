@@ -24,10 +24,10 @@ abstract class AppRouter {
   static const kForgetPasswordView = "/forgetpasswordview";
   static final router = GoRouter(
     routes: [
-      // GoRoute(
-      //   path: '/',
-      //   builder: (context, state) => const OnBoardingView(),
-      // ),
+      GoRoute(
+        path: '/',
+        builder: (context, state) => const OnBoardingView(),
+      ),
       GoRoute(
         path: kHomeView,
         builder: (context, state) => const HomeView(),
@@ -40,7 +40,7 @@ abstract class AppRouter {
         ),
       ),
       GoRoute(
-        path: '/',
+        path: kSignUpView,
         builder: (context, state) => MultiBlocProvider(
           providers: [
             BlocProvider(

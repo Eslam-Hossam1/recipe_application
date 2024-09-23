@@ -22,8 +22,7 @@
             "user_not_found": "No user found with this email address.",
             "invalid_recipient_email": "The email address is not valid.",
             "too_many_requests": "Too many requests, please try again later.",
-            "network_request_failed": "Network error, please check your connection.",
-            "go_verify_email":"We've sent a verification email to you! Please check your inbox and verify your account to continue."
+            "network_request_failed": "Network error, please check your connection."
 
 
         },
@@ -31,7 +30,9 @@
             "welcome_back":"Welcome Back!",
             "do_not_have_account":"Don’t have any account?",
             "wrong_password": "The password is incorrect. Please try again.",
-            "user_disabled": "This user account has been disabled. Please contact support."
+            "user_disabled": "This user account has been disabled. Please contact support.",
+            "your_email_need_to_verified":"Your email is not verified yet. We have sent you a new verification email. Please check your inbox and verify your email to continue."
+
         },
         "sign_up":{
             "welcome":"Welcome!",
@@ -41,7 +42,9 @@
             "must_contains_a_number":"Contains a number",
             "email_already_in_use": "The email is already in use by another account.",
             "operation_not_allowed": "Email/password sign-in is not enabled. Please contact support.",
-            "weak_password": "The password is too weak. Please choose a stronger password."
+            "weak_password": "The password is too weak. Please choose a stronger password.",
+            "we_sent_email_verification":"We've sent a verification email to you! Please check your inbox and verify your account to continue."
+
         },
         "forget_password":{
             "password_recovery":"Password recovery",

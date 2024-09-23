@@ -1,6 +1,12 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:recipe_app/core/functions/custom_adaptive_awesome_dialog.dart';
+import 'package:recipe_app/core/utils/app_localization_keys.dart';
+import 'package:recipe_app/core/utils/app_router.dart';
 import 'package:recipe_app/core/utils/colors.dart';
 import 'package:recipe_app/core/widgets/adaptive_layout_widget.dart';
 import 'package:recipe_app/core/widgets/adaptive_padding.dart';
@@ -15,7 +21,29 @@ class LoginView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: BlocBuilder<LogInCubit, LogInState>(
+      child: BlocConsumer<LogInCubit, LogInState>(
+        listener: (context, state) {
+          if (state is LogInFailure) {
+            customAdaptiveAwesomeDialog(
+              context,
+              dialogType: DialogType.error,
+              title: AppLocalizationKeys.global.error.tr(),
+              desc: state.errorMessage,
+              btnOkOnPress: () {},
+            ).show();
+          } else if (state is LogInSuccessButNeedVerification) {
+            customAdaptiveAwesomeDialog(
+              context,
+              dialogType: DialogType.info,
+              title: AppLocalizationKeys.global.info.tr(),
+              desc: AppLocalizationKeys.auth.logInViewYourEmailNotVerifiedYet
+                  .tr(),
+              btnOkOnPress: () {},
+            ).show();
+          } else if (state is LogInSuccessAndVerified) {
+            context.push(AppRouter.kHomeView);
+          }
+        },
         builder: (context, state) {
           bool isLoading = state is LogInLoading;
           return ModalProgressHUD(
