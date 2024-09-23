@@ -48,8 +48,8 @@
         },
         "forget_password":{
             "password_recovery":"Password recovery",
-            "enter_email_recover_password":"Enter your email to recover your password"
-
+            "enter_email_recover_password":"Enter your email to recover your password",
+            "password_reset_link_sent":"A password reset link has been sent to your email. Please check your inbox to reset your password."
         }
 
         

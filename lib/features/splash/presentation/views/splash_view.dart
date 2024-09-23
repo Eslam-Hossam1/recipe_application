@@ -8,11 +8,9 @@ class SplashView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: AppColors.getPrimaryColor(context),
-        body: const SplashViewBody(),
-      ),
+    return Scaffold(
+      backgroundColor: AppColors.getPrimaryColor(context),
+      body: const SplashViewBody(),
     );
   }
 }

@@ -60,6 +60,8 @@ class Auth {
       'auth.forget_password.password_recovery';
   final String forgetPasswordViewEnterEmailRecoverPassword =
       'auth.forget_password.enter_email_recover_password';
+  final String forgetPasswordViewPasswordResetLinkSent =
+      'auth.forget_password.password_reset_link_sent';
 }
 
 class Global {

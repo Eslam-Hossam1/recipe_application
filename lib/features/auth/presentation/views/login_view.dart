@@ -20,46 +20,44 @@ class LoginView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: BlocConsumer<LogInCubit, LogInState>(
-        listener: (context, state) {
-          if (state is LogInFailure) {
-            customAdaptiveAwesomeDialog(
-              context,
-              dialogType: DialogType.error,
-              title: AppLocalizationKeys.global.error.tr(),
-              desc: state.errorMessage,
-              btnOkOnPress: () {},
-            ).show();
-          } else if (state is LogInSuccessButNeedVerification) {
-            customAdaptiveAwesomeDialog(
-              context,
-              dialogType: DialogType.info,
-              title: AppLocalizationKeys.global.info.tr(),
-              desc: AppLocalizationKeys.auth.logInViewYourEmailNotVerifiedYet
-                  .tr(),
-              btnOkOnPress: () {},
-            ).show();
-          } else if (state is LogInSuccessAndVerified) {
-            context.push(AppRouter.kHomeView);
-          }
-        },
-        builder: (context, state) {
-          bool isLoading = state is LogInLoading;
-          return ModalProgressHUD(
-            inAsyncCall: isLoading,
-            progressIndicator: CircularProgressIndicator(
-              color: AppColors.getPrimaryColor(context),
+    return BlocConsumer<LogInCubit, LogInState>(
+      listener: (context, state) {
+        if (state is LogInFailure) {
+          customAdaptiveAwesomeDialog(
+            context,
+            dialogType: DialogType.error,
+            title: AppLocalizationKeys.global.error.tr(),
+            desc: state.errorMessage,
+            btnOkOnPress: () {},
+          ).show();
+        } else if (state is LogInSuccessButNeedVerification) {
+          customAdaptiveAwesomeDialog(
+            context,
+            dialogType: DialogType.info,
+            title: AppLocalizationKeys.global.info.tr(),
+            desc:
+                AppLocalizationKeys.auth.logInViewYourEmailNotVerifiedYet.tr(),
+            btnOkOnPress: () {},
+          ).show();
+        } else if (state is LogInSuccessAndVerified) {
+          context.go(AppRouter.kHomeView);
+        }
+      },
+      builder: (context, state) {
+        bool isLoading = state is LogInLoading;
+        return ModalProgressHUD(
+          inAsyncCall: isLoading,
+          progressIndicator: CircularProgressIndicator(
+            color: AppColors.getPrimaryColor(context),
+          ),
+          child: Scaffold(
+            body: AdaptiveLayout(
+              mobileLayout: (context) => const LoginViewBodyMobileLayout(),
+              tabletLayout: (context) => const LoginViewBodyTabletLayout(),
             ),
-            child: Scaffold(
-              body: AdaptiveLayout(
-                mobileLayout: (context) => const LoginViewBodyMobileLayout(),
-                tabletLayout: (context) => const LoginViewBodyTabletLayout(),
-              ),
-            ),
-          );
-        },
-      ),
+          ),
+        );
+      },
     );
   }
 }

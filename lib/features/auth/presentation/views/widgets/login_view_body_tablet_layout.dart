@@ -2,8 +2,10 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:recipe_app/core/functions/get_auth__tablet_padding.dart';
 import 'package:recipe_app/core/utils/app_localization_keys.dart';
+import 'package:recipe_app/core/utils/app_router.dart';
 import 'package:recipe_app/core/utils/colors.dart';
 import 'package:recipe_app/core/utils/constants.dart';
 import 'package:recipe_app/core/utils/styles.dart';
@@ -62,7 +64,9 @@ class LoginViewBodyTabletLayout extends StatelessWidget {
                     width: 12,
                   ),
                   ClickableText(
-                    onTap: () {},
+                    onTap: () {
+                      context.go(AppRouter.kSignUpView);
+                    },
                     text: AppLocalizationKeys.auth.signup.tr(),
                     style: Styles.textStyleBold15(context).copyWith(
                       color: AppColors.getPrimaryColor(context),

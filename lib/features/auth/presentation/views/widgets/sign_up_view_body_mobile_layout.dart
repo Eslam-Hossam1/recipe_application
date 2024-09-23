@@ -2,7 +2,9 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:recipe_app/core/utils/app_localization_keys.dart';
+import 'package:recipe_app/core/utils/app_router.dart';
 import 'package:recipe_app/core/utils/colors.dart';
 import 'package:recipe_app/core/utils/constants.dart';
 import 'package:recipe_app/core/utils/styles.dart';
@@ -61,7 +63,9 @@ class SignUpViewBodyMobileLayout extends StatelessWidget {
                   width: 8,
                 ),
                 ClickableText(
-                  onTap: () {},
+                  onTap: () {
+                    context.go(AppRouter.kLogInView);
+                  },
                   text: AppLocalizationKeys.auth.logIn.tr(),
                   style: Styles.textStyleBold15(context).copyWith(
                     color: AppColors.getPrimaryColor(context),

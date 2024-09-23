@@ -24,8 +24,7 @@ class SignUpView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: BlocConsumer<SignUpCubit, SignUpState>(
+    return BlocConsumer<SignUpCubit, SignUpState>(
       listener: (context, state) {
         if (state is SignUpFailure) {
           customAdaptiveAwesomeDialog(
@@ -64,6 +63,6 @@ class SignUpView extends StatelessWidget {
           ),
         );
       },
-    ));
+    );
   }
 }
