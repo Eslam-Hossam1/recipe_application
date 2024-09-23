@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:recipe_app/core/utils/service_locator.dart';
 import 'package:recipe_app/features/auth/data/repos/auth_repo_impl.dart';
+import 'package:recipe_app/features/auth/presentation/manager/log_in_cubit/log_in_cubit.dart';
 import 'package:recipe_app/features/auth/presentation/manager/sign_up_cubit/sign_up_cubit.dart';
 import 'package:recipe_app/features/auth/presentation/manager/validate_sign_up_password_cubit/validate_sign_up_password_cubit.dart';
 import 'package:recipe_app/features/auth/presentation/views/forget_password_view.dart';
@@ -33,7 +34,10 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: kLogInView,
-        builder: (context, state) => const LoginView(),
+        builder: (context, state) => BlocProvider(
+          create: (context) => LogInCubit(getIt<AuthRepoImpl>()),
+          child: const LoginView(),
+        ),
       ),
       GoRoute(
         path: '/',
