@@ -29,6 +29,7 @@ AwesomeDialog customAdaptiveAwesomeDialog(BuildContext context,
     btnOkOnPress: btnOkOnPress,
     dismissOnBackKeyPress: dismissOnBackKeyPress,
     dismissOnTouchOutside: dismissOnTouchOutside,
+    onDismissCallback: onDismissCallback,
     width: getAwesomeDialogAdaptiveWidth(context),
   );
 }
@@ -36,7 +37,7 @@ AwesomeDialog customAdaptiveAwesomeDialog(BuildContext context,
 getAwesomeDialogAdaptiveWidth(context) {
   double width = MediaQuery.sizeOf(context).width;
   if (width < SizeConfig.tabletBreakPoint) {
-    return width * .8;
+    return width * .9;
   } else {
     return (width - (width * .20 * 2)) * .8;
   }

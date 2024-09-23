@@ -2,18 +2,12 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:recipe_app/core/utils/app_localization_keys.dart';
-import 'package:recipe_app/core/utils/assets.dart';
-import 'package:recipe_app/core/utils/colors.dart';
-import 'package:recipe_app/core/utils/styles.dart';
-import 'package:recipe_app/core/widgets/custom_text_button.dart';
 import 'package:recipe_app/features/auth/presentation/manager/sign_up_cubit/sign_up_cubit.dart';
+import 'package:recipe_app/features/auth/presentation/manager/validate_sign_up_password_cubit/validate_sign_up_password_cubit.dart';
 import 'package:recipe_app/features/auth/presentation/views/widgets/custom_text_form_field.dart';
-import 'package:recipe_app/features/auth/presentation/views/widgets/forget_password_clickable_text.dart';
-import 'package:recipe_app/features/auth/presentation/views/widgets/login_with_email_and_password_button.dart';
 import 'package:recipe_app/features/auth/presentation/views/widgets/obsecure_text_form_field.dart';
-import 'package:recipe_app/features/auth/presentation/views/widgets/sign_in_with_google_button.dart';
+import 'package:recipe_app/features/auth/presentation/views/widgets/sign_up_password_standards_column.dart';
 import 'package:recipe_app/features/auth/presentation/views/widgets/sign_up_with_email_and_password_button.dart';
 
 class SignUpForm extends StatefulWidget {
@@ -52,6 +46,14 @@ class _SignUpFormState extends State<SignUpForm> {
             height: 16.h,
           ),
           ObsecureTextFormField(
+            validator: (password) {
+              return BlocProvider.of<ValidateSignUpPasswordCubit>(context)
+                  .passwordTextFieldValidator(password);
+            },
+            onChanged: (password) {
+              BlocProvider.of<ValidateSignUpPasswordCubit>(context)
+                  .validatePasswordOnChange(password: password);
+            },
             hint: AppLocalizationKeys.auth.passwordTextFieldHint.tr(),
             onSaved: (value) {
               password = value;
@@ -60,51 +62,7 @@ class _SignUpFormState extends State<SignUpForm> {
           SizedBox(
             height: 24.h,
           ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                AppLocalizationKeys.auth.signUpViewYourPasswordMustContain.tr(),
-                style: Styles.textStyleMedium17(context).copyWith(
-                  color: AppColors.getMainTextColor(context),
-                ),
-              ),
-              SizedBox(
-                height: 16.h,
-              ),
-              Row(
-                children: [
-                  SvgPicture.asset(Assets.imagesGreenDoneIcon),
-                  SizedBox(
-                    width: 8.w,
-                  ),
-                  Text(
-                    AppLocalizationKeys.auth.signUpViewAtLeastCharacters.tr(),
-                    style: Styles.textStyleMedium15(context).copyWith(
-                      color: AppColors.getMainTextColor(context),
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 16.h,
-              ),
-              Row(
-                children: [
-                  SvgPicture.asset(Assets.imagesGrayDoneIcon),
-                  SizedBox(
-                    width: 8.w,
-                  ),
-                  Text(
-                    AppLocalizationKeys.auth.signUpViewMustContainNumber.tr(),
-                    style: Styles.textStyleMedium15(context).copyWith(
-                      color: AppColors.getSecondaryTextColor(context),
-                    ),
-                  ),
-                ],
-              )
-            ],
-          ),
+          const SignUpPasswordStandardsColumn(),
           SizedBox(
             height: 48.h,
           ),
@@ -116,7 +74,9 @@ class _SignUpFormState extends State<SignUpForm> {
                     .signUpWithEmailAndPassword(
                         email: email!, password: password!);
               } else {
-                _autovalidateMode = AutovalidateMode.always;
+                setState(() {
+                  _autovalidateMode = AutovalidateMode.always;
+                });
               }
             },
           ),

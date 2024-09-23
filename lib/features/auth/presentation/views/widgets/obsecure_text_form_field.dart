@@ -14,9 +14,13 @@ class ObsecureTextFormField extends StatefulWidget {
     super.key,
     required this.hint,
     this.onSaved,
+    this.validator,
+    this.onChanged,
   });
   final String hint;
   final void Function(String?)? onSaved;
+  final String? Function(String?)? validator;
+  final void Function(String)? onChanged;
 
   @override
   State<ObsecureTextFormField> createState() => _ObsecureTextFormFieldState();
@@ -35,7 +39,8 @@ class _ObsecureTextFormFieldState extends State<ObsecureTextFormField> {
   Widget build(BuildContext context) {
     return TextFormField(
       onSaved: widget.onSaved,
-      validator: customTextFormFieldValidator,
+      onChanged: widget.onChanged,
+      validator: widget.validator ?? customTextFormFieldValidator,
       obscureText: isObscure,
       cursorColor: AppColors.getPrimaryColor(context),
       style: Styles.textStyleSemiBold15(context).copyWith(

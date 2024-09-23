@@ -35,7 +35,18 @@ class SignUpView extends StatelessWidget {
             desc: state.errorMessage,
             btnOkOnPress: () {},
           ).show();
-        } else if (state is SignUpSuccess) {}
+        } else if (state is SignUpSuccess) {
+          customAdaptiveAwesomeDialog(
+            context,
+            dialogType: DialogType.success,
+            title: AppLocalizationKeys.global.success.tr(),
+            desc: AppLocalizationKeys.auth.goVerifyEmail.tr(),
+            btnOkOnPress: () {},
+            onDismissCallback: (_) {
+              context.go(AppRouter.kLogInView);
+            },
+          ).show();
+        }
       },
       builder: (context, state) {
         bool isLoading = state is SignUpLoading;
