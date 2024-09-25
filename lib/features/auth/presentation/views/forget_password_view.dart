@@ -12,6 +12,7 @@ import 'package:recipe_app/core/utils/app_router.dart';
 import 'package:recipe_app/core/utils/colors.dart';
 import 'package:recipe_app/core/widgets/adaptive_layout_widget.dart';
 import 'package:recipe_app/core/widgets/adaptive_padding.dart';
+import 'package:recipe_app/core/widgets/custom_cicular_progress_indicator.dart';
 import 'package:recipe_app/features/auth/presentation/manager/forget_password_cubit/forget_password_cubit.dart';
 import 'package:recipe_app/features/auth/presentation/views/widgets/forget_password_body.dart';
 import 'package:recipe_app/features/auth/presentation/views/widgets/forget_password_view_body_tablet_layout.dart';
@@ -52,9 +53,7 @@ class ForgetPasswordView extends StatelessWidget {
 
         return ModalProgressHUD(
           inAsyncCall: isLoading,
-          progressIndicator: CircularProgressIndicator(
-            color: AppColors.getPrimaryColor(context),
-          ),
+          progressIndicator: const CustomCircularProgressIndicator(),
           child: Scaffold(
             appBar: AppBar(
               surfaceTintColor: Colors.transparent,

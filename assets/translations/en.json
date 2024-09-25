@@ -54,6 +54,21 @@
 
         
     },
+
+    "profile_setup":{
+        
+        "complete_profile": "Complete Your Profile",
+        "upload_profile_picture": "Upload Profile Picture",
+        "choose_username": "Choose a Username",
+        "username_placeholder": "Your username",
+        "username_empty_error": "Username cannot be empty",
+        "complete_profile_button": "Complete Profile",
+        "profile_picture_optional": "You can add a profile picture later.",
+        "saving_profile_error": "An error occurred while saving your profile. Please try again.",
+        "saving_profile_success": "Profile saved successfully."
+    
+          
+    },
     
     "global":{
         "warning":"Warning",

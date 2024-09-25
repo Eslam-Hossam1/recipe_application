@@ -54,6 +54,21 @@
 
         
     },
+
+    "profile_setup":{
+        
+        "complete_profile": "أكمل ملفك الشخصي",
+        "upload_profile_picture": "حمّل صورة الملف الشخصي",
+        "choose_username": "اختر اسم المستخدم",
+        "username_placeholder": "اسم المستخدم",
+        "username_empty_error": "لا يمكن أن يكون اسم المستخدم فارغًا",
+        "complete_profile_button": "إكمال الملف الشخصي",
+        "profile_picture_optional": "يمكنك إضافة صورة الملف الشخصي لاحقًا.",
+        "saving_profile_error": "حدث خطأ أثناء حفظ ملفك الشخصي. الرجاء المحاولة مرة أخرى.",
+        "saving_profile_success": "تم حفظ الملف الشخصي بنجاح."
+        
+            
+    },
     "global":{
         "warning":"تحذير",
             "error":"خطأ",
